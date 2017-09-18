@@ -4,9 +4,9 @@
 
 #define TITLE_X (WIN_X + 4)
 #define BOARD_X (WIN_X + 4)
-#define BOARD_Y (WIN_Y + 2)
+#define BOARD_Y (WIN_Y + 3)
 #define STATUS_X (WIN_X + 2)
-#define STATUS_Y (WIN_Y + WIN_H - 3)
+#define STATUS_Y (WIN_Y + WIN_H - 4)
 #define TIE_GAME (OPEN_SPACE)
 #define QUIT_GAME (-2)
 #define WINS_X (BOARD_X + 9)
@@ -245,11 +245,8 @@ void TicTacToeGame::run() {
 				bool quitGame = playGame();
 				if (quitGame)
 					break;
-				if (autoContinue && gameMode == GameModes::AI_VS_AI) {
+				if (autoContinue && gameMode == GameModes::AI_VS_AI)
 					key = timeout_getch(300);
-					//SLEEP(300);
-					//key = nodelay_getch();
-				}
 				else
 					key = flush_getch();
 			} while (key != 27 && key != '\b' && key != KEY_BACKSPACE); // Escape pressed
@@ -283,8 +280,11 @@ bool TicTacToeGame::playGame() {
 		drawBoard();
 		
 		key = nodelay_getch();
-		if (key == 27 || key == '\b' || key == KEY_BACKSPACE)
-			return true;
+		while (key != ERR) {
+			if (key == 27 || key == '\b' || key == KEY_BACKSPACE)
+				return true;
+			key = nodelay_getch();
+		}
 		
 		// Check for ending
 		if (ttt.isWin(board, currentSide)) {
@@ -311,8 +311,11 @@ bool TicTacToeGame::playGame() {
 		}
 		
 		key = nodelay_getch();
-		if (key == 27 || key == '\b' || key == KEY_BACKSPACE)
-			return true;
+		while (key != ERR) {
+			if (key == 27 || key == '\b' || key == KEY_BACKSPACE)
+				return true;
+			key = nodelay_getch();
+		}
 	}
 	return false;
 }
@@ -394,10 +397,7 @@ int TicTacToeGame::playerTakeTurn() {
 	return currentPosition;
 }
 int TicTacToeGame::aiTakeTurn() {
-	//SLEEP(600);
-	int key = timeout_getch(600);
-	if (key == QUIT_GAME)
-		return QUIT_GAME;
+	SLEEP(600);
 		
 	int position = ttt.getBestPosition(
 		board, currentSide,
