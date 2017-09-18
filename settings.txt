@@ -1,0 +1,30 @@
+:Train_Settings:
+log					true
+snapshotPath		"./snapshots_0.1_decay"
+rewardDecay			0.5
+increment			1  100
+increment   		100 1000
+increment   		1000 10000
+increment			10000 100000
+increment			100000 5000000
+
+:CPU_X_Settings:
+useSnapshotX		true
+snapshotPathX		"./snapshots_0.5_decay"
+iterationsX			5000000
+rewardThresholdX	0.01
+isThresholdFixedX	false
+rewardDecayX		0.5
+
+:CPU_O_Settings:
+useSnapshotO		false
+snapshotPathO		"./snapshots_0.5_decay"
+iterationsO			5000000
+rewardThresholdO	0.01
+isThresholdFixedO	false
+rewardDecayO		0.5
+
+:Other_Settings:
+playerSide			O
+autoContinue		true
+
