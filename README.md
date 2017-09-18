@@ -1,10 +1,10 @@
 # Caffe Tic-Tac-Toe
 
-Just an example of teaching a neural network to play tic-tac-toe.
+An example of teaching a neural network to play tic-tac-toe.
 
 ![Window Preview](https://i.imgur.com/RCzNfYk.png)
 
-### [Image Album](https://imgur.com/a/irmkF)
+### [Wiki](https://github.com/trigger-death/Caffe-TicTacToe/wiki) | [Credits](https://github.com/trigger-death/Caffe-TicTacToe/wiki/Credits) | [Image Album](https://imgur.com/a/irmkF)
 
 ## Building from Source
 * Install [Caffe](https://github.com/BVLC/caffe)
