@@ -9,5 +9,9 @@ An example of teaching a neural network to play tic-tac-toe.
 ## Building from Source
 * Install [Caffe](https://github.com/BVLC/caffe)
 * Install [ncurses](https://en.wikipedia.org/wiki/Ncurses)
-* Navigate to the main directory of the project
+* Navigate to the project's root directory
 * `$ mkdir build`, `$ cd build`, `$ cmake ..`, then `$ make`
+
+## Pretrained Snapshots
+
+**[Pretrained snapshots can be acquired here](https://github.com/trigger-death/Caffe-TicTacToe/releases/tag/1.0.0.0)**
